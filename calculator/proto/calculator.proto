@@ -5,15 +5,10 @@ package calculator;
 option go_package = "github.com/fkhjoy/gRPC-Go/calculator/proto";
 
 
-message SumRequest {
-    int32 firstNumber = 1;
-    int32 secondNumber = 2;
-}
-
-message SumResponse {
-    int32 result = 1;
-}
+import "sum.proto";
+import "primes.proto";
 
 service CalculatorService {
     rpc Sum (SumRequest) returns (SumResponse);
+    rpc Primes (PrimeRequest) returns (stream PrimeResponse);
 }
