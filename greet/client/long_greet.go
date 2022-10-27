@@ -11,10 +11,10 @@ import (
 func doLongGreet(c pb.GreetServiceClient) {
 	log.Println("doLongGreet was invoked")
 
-	reqs := []*pb.GreetRequest {
-		{ FirstName: "Foysal"},
-		{ FirstName: "Khandakar"},
-		{ FirstName: "Joy"},
+	reqs := []*pb.GreetRequest{
+		{FirstName: "Foysal"},
+		{FirstName: "Khandakar"},
+		{FirstName: "Joy"},
 	}
 
 	stream, err := c.LongGreet(context.Background())
@@ -26,7 +26,7 @@ func doLongGreet(c pb.GreetServiceClient) {
 	for _, req := range reqs {
 		log.Println("Sending req: %v", req)
 		stream.Send(req)
-		time.Sleep(1*time.Second)
+		time.Sleep(1 * time.Second)
 	}
 
 	res, err := stream.CloseAndRecv()
