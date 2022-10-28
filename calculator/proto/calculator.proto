@@ -8,9 +8,11 @@ option go_package = "github.com/fkhjoy/gRPC-Go/calculator/proto";
 import "sum.proto";
 import "primes.proto";
 import "average.proto";
+import "max.proto";
 
 service CalculatorService {
     rpc Sum (SumRequest) returns (SumResponse);
     rpc Primes (PrimeRequest) returns (stream PrimeResponse);
     rpc Average (stream AvgRequest) returns (AvgResponse);
+    rpc Max (stream MaxRequest) returns (stream MaxResponse);
 }
